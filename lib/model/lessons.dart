@@ -16,11 +16,11 @@ class Lessons extends ChangeNotifier {
       tileText: "Control Flow",
     ),
     IntroPython(
-      isLocked: false,
+      isLocked: true,
       tileText: "List",
     ),
     IntroPython(
-      isLocked: false,
+      isLocked: true,
       tileText: "Fuctions",
     ),
   ];
@@ -30,10 +30,18 @@ class Lessons extends ChangeNotifier {
   }
 
   bool allDone() {
-    if (introPy == true) {
-      return false;
-    } else {
+    if (introPy[4].isLocked == true) {
       return true;
+    } else {
+      return false;
+    }
+  }
+
+  bool allDone2() {
+    if (introPy[4].isLocked == true) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

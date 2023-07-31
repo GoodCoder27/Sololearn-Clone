@@ -16,6 +16,14 @@ class _LearnPageState extends State<LearnPage> {
     if (Lessons().allDone() == true) {
       return 'Your certificate is close keep learning';
     } else {
+      return 'The certificate is ready to claim for you. You did amazing job in the course and earned it';
+    }
+  }
+
+  String doneCourse2() {
+    if (Lessons().allDone2() == true) {
+      return 'You are doing great! Keep learning to unclock your certificate';
+    } else {
       return 'Well done!';
     }
   }
@@ -23,6 +31,107 @@ class _LearnPageState extends State<LearnPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottom nav bar
+      bottomNavigationBar: BottomAppBar(
+        color: const Color.fromARGB(255, 49, 55, 59),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.school,
+                    color: Colors.grey,
+                  ),
+                ),
+                const Text(
+                  'Learn',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.groups,
+                    color: Colors.grey,
+                  ),
+                ),
+                const Text(
+                  'Community',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.emoji_events,
+                    color: Colors.grey,
+                  ),
+                ),
+                const Text(
+                  'Leaderboard',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.chat_bubble,
+                    color: Colors.grey,
+                  ),
+                ),
+                const Text(
+                  'Create',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.person_sharp,
+                    color: Colors.grey,
+                  ),
+                ),
+                const Text(
+                  'Profile',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
       backgroundColor: const Color.fromARGB(255, 40, 41, 45),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 0, 120, 188),
@@ -107,7 +216,9 @@ class _LearnPageState extends State<LearnPage> {
               children: [
                 Image.asset(
                   'lib/icons/certificate.png',
-                  height: 100,
+                  height: 80,
+                  fit: BoxFit.fill,
+                  width: 90,
                 ),
                 Text(
                   doneCourse(),
@@ -116,6 +227,15 @@ class _LearnPageState extends State<LearnPage> {
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  doneCourse2(),
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
