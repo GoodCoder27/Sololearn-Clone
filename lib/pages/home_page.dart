@@ -13,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // tabs for community page
+
   // ignore: unused_field
   int _selectedIndex = 0;
 
@@ -53,11 +55,16 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget? onLearnPage() {
+  Widget appBarActions() {
     if (_selectedIndex == 0) {
       return IconButton(
         onPressed: () {},
         icon: const Icon(Icons.expand_more),
+      );
+    } else if (_selectedIndex == 1 || _selectedIndex == 3) {
+      return IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.message_rounded),
       );
     } else {
       return const Text(
@@ -78,7 +85,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Row(
             children: [
-              onLearnPage()!,
+              appBarActions(),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.notifications),
@@ -97,27 +104,37 @@ class _HomePageState extends State<HomePage> {
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(
+              Icons.school,
+            ),
             label: 'Learn',
             backgroundColor: Color.fromARGB(255, 47, 56, 58),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.groups),
+            icon: Icon(
+              Icons.groups,
+            ),
             label: 'Community',
             backgroundColor: Color.fromARGB(255, 47, 56, 58),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_events_rounded),
+            icon: Icon(
+              Icons.emoji_events_rounded,
+            ),
             label: 'LeaderBoard',
             backgroundColor: Color.fromARGB(255, 47, 56, 58),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mode_comment),
+            icon: Icon(
+              Icons.mode_comment,
+            ),
             label: 'Create',
             backgroundColor: Color.fromARGB(255, 47, 56, 58),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_rounded),
+            icon: Icon(
+              Icons.account_circle_rounded,
+            ),
             label: 'Account',
             backgroundColor: Color.fromARGB(255, 47, 56, 58),
           ),
@@ -125,6 +142,7 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
         onTap: (index) => navigationBottomBar(index),
+        unselectedItemColor: Colors.grey,
       ),
       body: _pages[_selectedIndex],
     );
